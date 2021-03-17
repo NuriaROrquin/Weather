@@ -41,9 +41,9 @@ export function SelectField({
 				}}
 			>
 				{defaultOption && <option value="">{defaultOption}</option>}
-				{options.map((option) => {
+				{options.map((option, index) => {
 					return (
-						<option key={option.value} value={option.value}>
+						<option key={index} value={option.value}>
 							{option.label}
 						</option>
 					);

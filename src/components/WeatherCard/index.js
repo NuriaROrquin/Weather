@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { SelectField } from '../../Basics/index.js';
+import { getDay } from '../../helpers/index.js';
 import useForecast from '../../Hooks/useForecast.js';
 import { 
   CardContainer, 
@@ -53,12 +54,17 @@ export default function WeatherCard() {
     }
   ]
 
+
+
     return (
         <CardContainer>
           {weatherDay.map((item, index) => {
             return (
               <ActualWeather key={index}>
                 <ContainerWeather>
+                  <div>
+                    <Day>{getDay(item.items[0].dt_txt).dayOfTheWeek}</Day>
+                  </div>
                   <div style={{display: "flex"}}>
                     <Temperature>{item.items[0].main.temp}</Temperature>
                     <Degrees>°C</Degrees>
@@ -87,9 +93,9 @@ export default function WeatherCard() {
             <Rectangle>
             {forecast.map((item, index) => {
             return (
-              <ForecastCard>
+              <ForecastCard key={index}>
                 <div>
-                  <Day>Martes</Day>
+                  <Day>{getDay(item.items[0].dt_txt).dayOfTheWeek}</Day>
                 </div>
                 <ContainerDetailsForecast>
                   <ContainerIcon style={{width: "5rem", height: "5rem"}}>

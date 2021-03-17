@@ -11,7 +11,7 @@ export function splitArray(array) {
 
   day.push({ id: uuidv4(), items: [array[0]] });
 
-  return {week, day};
+  return { week, day };
 }
 
 export function uuidv4() {
@@ -23,3 +23,17 @@ export function uuidv4() {
     return v.toString(16);
   });
 }
+
+export function getDay(date){
+  const days=["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"];
+
+  const year = date.substr(0,4)
+  const month = date.substr(5,2)
+  const day = date.substr(8, 2)
+
+  var dt = new Date(month+' '+day+', '+year+' 12:00:00');
+  const dayOfTheWeek = days[dt.getUTCDay()];
+  
+  return { dayOfTheWeek };
+};
+
