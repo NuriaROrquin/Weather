@@ -1,13 +1,17 @@
 export function splitArray(array) {
-  const result = [];
 
-  for (let index = 0; index < array.length; index += 8) {
-    result.push({ id: uuidv4(), items: [array[index]] });
+  const week = [];
+  const day = [];
+
+  for (let index = 8; index < array.length; index += 8) {
+    week.push({ id: uuidv4(), items: [array[index]] });
   }
 
-  result.push({ id: uuidv4(), items: [array[array.length - 1]] });
+  week.push({ id: uuidv4(), items: [array[array.length - 1]] });
 
-  return result;
+  day.push({ id: uuidv4(), items: [array[0]] });
+
+  return {week, day};
 }
 
 export function uuidv4() {

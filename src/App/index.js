@@ -1,15 +1,15 @@
 import WeatherCard from '../components/WeatherCard/index.js';
-import useForecast from '../Hooks/useForecast.js';
 import { BackgroundImage, AppContainer } from './styled.js';
+import useForecast from '../Hooks/useForecast.js';
 
 export default function App() {
 
-  const { forecast } = useForecast('Kiev', 'ua');
+  const { forecast, weatherDay } = useForecast('Kiev', 'ua')
 
   return (
     <AppContainer>
         <BackgroundImage />
-        <WeatherCard />
+        <WeatherCard forecast={forecast} weatherDay={weatherDay} />
 		</AppContainer>
   );
 }
