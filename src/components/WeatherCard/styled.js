@@ -4,7 +4,7 @@ import { breakpoints } from "../../definitions";
 export const CardContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-    width: 90vw; 
+    width: 100vw; 
     min-height: 100vh;
     height: 20rem;
     background-color: rgba(255, 255, 255, .15);  
@@ -104,18 +104,24 @@ export const Description = styled.span`
     color: white;
     justify-self: flex-end;
     text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: 300;
 `;
 
 export const Humidity = styled.span`
     display: flex;
     color: white;
     justify-self: flex-end;
+    font-size: 2rem;
+    font-weight: 300;
 `;
 
 export const WindSpeed = styled.span`
     display: flex;
     color: white;
     justify-self: flex-end;
+    font-size: 2rem;
+    font-weight: 300;
 `;
 
 export const Rectangle = styled.div`
@@ -164,12 +170,13 @@ export const TemperatureForecast = styled.h3`
 	}
 `;
 
-export const Day = styled.span`
+export const Day = styled.h2`
     display: flex;
     color: white;
     justify-self: center;
     font-size: 2rem;
     justify-self: flex-start;
+    font-weight: 400;
 `;
 
 export const ContainerDetailsForecast = styled.div`

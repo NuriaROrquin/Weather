@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react'
-import { SelectField } from '../../Basics/index.js';
+import { SelectField } from '../../basics/index.js';
 import { getDay } from '../../helpers/index.js';
-import useApiIp from '../../Hooks/useApiIp.js';
-import useForecast from '../../Hooks/useForecast.js';
+import useApiIp from '../../hooks/useApiIp.js';
+import useForecast from '../../hooks/useForecast.js';
 import { 
   CardContainer, 
   ActualWeather, 
@@ -85,7 +85,7 @@ export default function WeatherCard() {
                 <ContainerData>
 
                   <ContainerIcon>
-                    <img style={{width: "100%", height: "100%"}} alt="iconWeather" src={`http://openweathermap.org/img/w/${item.items[0].weather[0].icon}.png`}></img>
+                    <img style={{width: "7rem", height: "7rem"}} alt="iconWeather" src={`http://openweathermap.org/img/w/${item.items[0].weather[0].icon}.png`}></img>
                   </ContainerIcon>
 
                   <ContainerDescription>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App/index';
+import App from './app/index';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { normalize } from 'styled-normalize'

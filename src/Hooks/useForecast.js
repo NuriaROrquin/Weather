@@ -22,7 +22,7 @@ export default function useForecast( city ) {
     
     useEffect(() => {
       getForecast();
-    },[getForecast])
+    }, [getForecast])
 
   return {forecast, weatherDay}
 }
