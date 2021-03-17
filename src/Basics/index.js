@@ -3,7 +3,6 @@ import { FieldSelect, FieldGroup } from './styled.js';
 
 export function SelectField({
 	id,
-	defaultOption,
 	options,
 	onChange,
 	value,
@@ -28,7 +27,7 @@ export function SelectField({
 	}
 
 	return (
-		<FieldGroup className={`field-input-group`} >
+		<FieldGroup >
 			<FieldSelect
 				value={optionSelected}
 				tabIndex={tabIndex}
@@ -40,11 +39,10 @@ export function SelectField({
 					onChange && onChange(id, e.target.value);
 				}}
 			>
-				{defaultOption && <option value="">{defaultOption}</option>}
 				{options.map((option, index) => {
 					return (
 						<option key={index} value={option.value}>
-							{option.label}
+							{option.label}, {option.country}
 						</option>
 					);
 				})}

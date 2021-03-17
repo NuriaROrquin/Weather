@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { SelectField } from '../../Basics/index.js';
 import { getDay } from '../../helpers/index.js';
 import useForecast from '../../Hooks/useForecast.js';
@@ -22,39 +22,46 @@ import {
 
 export default function WeatherCard() {
 
-  const [city, setcity] = useState("Buenos Aires")
-  const [country, setcountry] = useState("Argentina")
+  const [city, setCity] = useState("Buenos Aires")
 
-  const { forecast, weatherDay } = useForecast(city, country)
+  const { forecast, weatherDay } = useForecast(city)
 
   const cities = [
     {
       id: 1,
-      label: `${city}, ${country}`,
+      label: 'Buenos Aires',
+      country: 'Argentina'
     },
     {
       id: 2,
-      label: 'Londres, Inglaterra',
+      label: 'Londres',
+      country: 'Inglaterra'
     },
     {
       id: 3,
-      label: 'Madrid, España',
+      label: 'Madrid',
+      country: 'España'
     },
     {
       id: 4,
-      label: 'Roma, Italia',
+      label: 'Roma',
+      country: 'Italia'
     },
     {
       id: 5,
-      label: 'Tokio, Japón',
+      label: 'Tokio',
+      country: 'Japón'
     },
     {
       id: 6,
-      label: 'París, Francia',
+      label: 'París',
+      country: 'Francia'
     }
   ]
 
-
+  const handleShowField = useCallback((field, label) => {
+    setCity(label);
+  }, []);
 
     return (
         <CardContainer>
@@ -69,7 +76,7 @@ export default function WeatherCard() {
                     <Temperature>{item.items[0].main.temp}</Temperature>
                     <Degrees>°C</Degrees>
                   </div>
-                  <SelectField options={cities} />
+                  <SelectField id={cities.id} options={cities} onChange={handleShowField} value={cities.label} />
                 </ContainerWeather>
 
                 <ContainerData>
