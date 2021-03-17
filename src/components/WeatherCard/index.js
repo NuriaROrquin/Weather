@@ -62,9 +62,9 @@ export default function WeatherCard() {
     }
   ]
 
-  const handleShowField = useCallback((field, label) => {
+  const handleShowField = (field, label) => {
     setCity(label);
-  }, []);
+  };
 
     return (
         <CardContainer>

@@ -8,7 +8,7 @@ export default function useForecast( city ) {
 
 
     const getForecast = useCallback(async () => {
-      const KEY = "4a6550b8c756aff8e3580d75108b7594";
+      const KEY = "25946a96a86f0c7a2ca0b83890dd30ef";
       const cityValue = city;
   
       const API_URL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityValue}&appid=${KEY}&lang=sp&units=metric`
@@ -19,10 +19,10 @@ export default function useForecast( city ) {
       setForecast(splitArray(data.list).week)
 
     }, [city])
-    
+
     useEffect(() => {
       getForecast();
-    }, [getForecast])
+    }, [getForecast, city])
 
   return {forecast, weatherDay}
 }
