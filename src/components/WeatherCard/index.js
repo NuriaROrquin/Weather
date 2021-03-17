@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { SelectField } from '../../Basics/index.js';
 import { getDay } from '../../helpers/index.js';
+import useApiIp from '../../Hooks/useApiIp.js';
 import useForecast from '../../Hooks/useForecast.js';
 import { 
   CardContainer, 
@@ -26,11 +27,13 @@ export default function WeatherCard() {
 
   const { forecast, weatherDay } = useForecast(city)
 
+  const { ipData } = useApiIp()
+
   const cities = [
     {
       id: 1,
-      label: 'Buenos Aires',
-      country: 'Argentina'
+      label: `${ipData.city}`,
+      country: `${ipData.country}`
     },
     {
       id: 2,
