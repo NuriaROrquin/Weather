@@ -12,7 +12,7 @@ export default function useForecast(city, country ) {
       const cityValue = city;
       const countryValue = country;
   
-      const API_URL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityValue},${countryValue}&appid=${KEY}&units=metric`
+      const API_URL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityValue},${countryValue}&appid=${KEY}&lang=sp&units=metric`
       const response = await fetch(API_URL);
       const data = await response.json();
   

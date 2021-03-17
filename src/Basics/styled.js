@@ -29,4 +29,8 @@ export const FieldSelect = styled.select`
 	height: 3.8rem;
 	padding: 0 1rem;
 	width: 100%;
+
+	option {
+		color: black;
+	}
 `;

@@ -36,7 +36,7 @@ export const Rectangle = styled.div`
     color: white;
 `;
 
-export const TimeCard = styled.div`
+export const ForecastCard = styled.div`
     display: flex;
     flex-basis: 20%;
     height: 100%;
@@ -69,10 +69,44 @@ export const ContainerWeather = styled.div`
 
 export const ContainerData = styled.div`
     display: flex;
-    flex-basis: 50%;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
-export const Data = styled.div`
+export const ContainerIcon = styled.div`
+    display: flex;
+    height: 10rem;
+    width: 10rem;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const ContainerDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+`;
+
+export const Description = styled.span`
+    display: flex;
+    color: white;
+    justify-self: flex-end;
+    text-transform: capitalize;
+`;
+
+export const Humidity = styled.span`
+    display: flex;
+    color: white;
+    justify-self: flex-end;
+`;
+
+export const WindSpeed = styled.span`
     display: flex;
     color: white;
     justify-self: flex-end;
