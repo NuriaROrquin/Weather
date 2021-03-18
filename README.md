@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# WeatherApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WeatherApp es una aplicación sencilla que permite visualizar el pronóstico actual y el de los siguientes 5 dias. También puede obtenerse la información del pronóstico para 5 ciudades seleccionables. 
 
-## Available Scripts
+## Comenzando
 
-In the project directory, you can run:
+*Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.*
 
-### `yarn start`
+- Clonar el repositorio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- En la consola entrar al directorio donde se clonó
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Ejecutar `$ npm install `
 
-### `yarn test`
+- Cuando termine, ejecutar: `$ npm start `
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Librerías Utilizadas
 
-### `yarn build`
+**ReactJS**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Styled components** (Estilos)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Styled normalize** (Estilos globales)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+##API 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Se utilizó la API recomendada **Open Weather Map** con el formato **5 day / 3 hour Forecast** y a continuación se describen 2 situaciones que deberían tomarse en cuenta al recomendar esta API.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Se observa que la API recomendada no tiene manera de cambiar el formato horario (GMT-3) con el que se consulta (actualmente hecho con UTC+1). Tampoco toma el huso horario del país que se le envía por path.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Se observa que la API, cuando se le consulta, devuelve un array de 40 posiciones, con lo cual, en cierta franja horaria, utilizando la api 5 days / 3 hours que se dispone de manera gratuita, hace imposible recuperar 5 días.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Explicación:** *Si uno se encuentra dentro de la franja horaria de 18 a 21hs, el valor que contiene el horario de la posición [0], es de 00:00hs del día siguiente (por la primer razón que se mencionó anteriormente). Por ejemplo, si en este momento es 17/03/2021 20:50, la api me devolverá en la posición [0] del array, el clima de la fecha 18/03/2021 con horario 00:00.
+Esto se traduce a que, teniendo 40 posiciones y sabiendo que cada posición que la API trae, es el clima cada 3 horas, en la posición [32] tendré la fecha 22/03/2021 con horario 00:00hs, y en la posición [39] del array (la última posición disponible) encontraré la fecha 22/03/2021 con horario 21:00hs.*
 
-## Learn More
+----
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created by @NuriaROrquin
