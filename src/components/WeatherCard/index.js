@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { SelectField } from '../../basics/index.js';
+import { SelectField } from '../../Basics/index.js';
 import { getDay, getHour } from '../../helpers/index.js';
-import useApiIp from '../../hooks/useApiIp.js';
-import useForecast from '../../hooks/useForecast.js';
+import useApiIp from '../../Hooks/useApiIp.js';
+import useForecast from '../../Hooks/useForecast.js';
 import { 
   CardContainer, 
   ActualWeather, 
