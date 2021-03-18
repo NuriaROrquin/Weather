@@ -34,7 +34,7 @@ Se utilizó la API recomendada **Open Weather Map** con el formato **5 day / 3 h
 Esto se traduce a que, teniendo 40 posiciones y sabiendo que cada posición que la API trae, es el clima cada 3 horas, en la posición [32] tendré la fecha 22/03/2021 con horario 00:00hs, y en la posición [39] del array (la última posición disponible) encontraré la fecha 22/03/2021 con horario 21:00hs.*
 
 
-**Resolución Por esos motivos, en el momento en el cual el horario es de 18hs a 21hs, se mostrarán en WeatherApp solo 4 días de pronóstico.**
+**Resolución: Por esos motivos, en el momento en el cual el horario es de 18hs a 21hs, se mostrarán en WeatherApp solo 4 días de pronóstico.**
 
 ----
 
