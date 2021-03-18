@@ -22,8 +22,7 @@ WeatherApp es una aplicación sencilla que permite visualizar el pronóstico act
 
 **Styled normalize** (Estilos globales)
 
-
-##API 
+## API 
 
 Se utilizó la API recomendada **Open Weather Map** con el formato **5 day / 3 hour Forecast** y a continuación se describen 2 situaciones que deberían tomarse en cuenta al recomendar esta API.
 
