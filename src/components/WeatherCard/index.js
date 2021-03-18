@@ -124,9 +124,9 @@ export default function WeatherCard() {
                   <ContainerIcon>
                     <img style={{width: "100%", height: "100%"}} alt="iconWeather" src={`http://openweathermap.org/img/w/${item.items[0].weather[0].icon}.png`}></img>
                   </ContainerIcon>
-                  <div style={{display: "flex", width: "7rem",}}>
+                  <div style={{display: "flex", width: "7rem", justifyContent: "flex-end"}}>
                     <TemperatureForecast>{item.items[0].main.temp}</TemperatureForecast>
-                    <Degrees style={{fontSize: "1rem", margin: "0px"}}>°C</Degrees>
+                    <Degrees style={{fontSize: "1rem", marginTop: "-6px"}}>°C</Degrees>
                   </div>
                 </ContainerDetailsForecast>
               </ForecastCard> 
