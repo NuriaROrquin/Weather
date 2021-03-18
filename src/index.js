@@ -28,7 +28,7 @@ ${normalize}
 		font-family: 'Oswald';
 		font-style: normal;
 		font-size: 1.4rem;
-		line-height: 1.7rem;
+		line-height: 2.5rem;
 		background: #ffffff;
 		margin: 0;
 		overflow-x: hidden;

@@ -16,10 +16,10 @@ import {
   ContainerWeather, 
   ContainerDescription,
   ContainerData,
-  ContainerIcon,
   TemperatureForecast,
   Day,
-  ContainerDetailsForecast } from './styled.js';
+  ContainerDetailsForecast,
+  ContainerIcon } from './styled.js';
 
 export default function WeatherCard() {
 
@@ -73,7 +73,7 @@ export default function WeatherCard() {
               <ActualWeather key={index}>
                 <ContainerWeather>
                   <div>
-                    <Day>{getDay(item.items[0].dt_txt).dayOfTheWeek}</Day>
+                    <Day>Hoy</Day>
                   </div>
                   <div style={{display: "flex"}}>
                     <Temperature>{item.items[0].main.temp}</Temperature>
@@ -84,16 +84,21 @@ export default function WeatherCard() {
 
                 <ContainerData>
 
-                  <ContainerIcon>
-                    <img style={{width: "7rem", height: "7rem"}} alt="iconWeather" src={`http://openweathermap.org/img/w/${item.items[0].weather[0].icon}.png`}></img>
-                  </ContainerIcon>
-
                   <ContainerDescription>
-                    <Description>{item.items[0].weather[0].description}</Description>
-                    <Humidity>La humedad es de {item.items[0].main.humidity}</Humidity>
-                    <WindSpeed>Velocidad del viento: {item.items[0].wind.speed}</WindSpeed>
-                  </ContainerDescription>
 
+                    <Description>
+
+                      <img style={{width: "7rem", height: "7rem"}} alt="iconWeather" src={`http://openweathermap.org/img/w/${item.items[0].weather[0].icon}.png`}></img>
+
+                      <span style={{fontWeight: "400"}}>{item.items[0].weather[0].description}</span>
+
+                    </Description>
+
+                    <Humidity>Humedad: {item.items[0].main.humidity} %</Humidity>
+
+                    <WindSpeed>Velocidad del viento: {((item.items[0].wind.speed)*3.6).toFixed(1)} km/h</WindSpeed>
+
+                  </ContainerDescription>
 
                 </ContainerData>
               </ActualWeather>
@@ -104,14 +109,15 @@ export default function WeatherCard() {
             {forecast.map((item, index) => {
             return (
               <ForecastCard key={index}>
-                <div>
+                <div style={{width: "auto"}}>
                   <Day>{getDay(item.items[0].dt_txt).dayOfTheWeek}</Day>
                 </div>
+                
                 <ContainerDetailsForecast>
-                  <ContainerIcon style={{width: "5rem", height: "5rem"}}>
+                  <ContainerIcon>
                     <img style={{width: "100%", height: "100%"}} alt="iconWeather" src={`http://openweathermap.org/img/w/${item.items[0].weather[0].icon}.png`}></img>
                   </ContainerIcon>
-                  <div style={{display: "flex"}}>
+                  <div style={{display: "flex", width: "7rem",}}>
                     <TemperatureForecast>{item.items[0].main.temp}</TemperatureForecast>
                     <Degrees style={{fontSize: "1rem"}}>°C</Degrees>
                   </div>

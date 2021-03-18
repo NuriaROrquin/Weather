@@ -3,8 +3,9 @@ import weatherImage from '../assets/image-weather.webp'
 
 export const AppContainer = styled.div`
 	display: flex;
+	min-height: 100vh;
 	height: auto;
-	width: auto;
+	width: 100vw;
 	justify-content: center;
 	align-items: center;
 	position: relative;

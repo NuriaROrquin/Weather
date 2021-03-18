@@ -4,14 +4,15 @@ import { breakpoints } from "../../definitions";
 export const CardContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-    width: 100vw; 
-    min-height: 100vh;
-    height: 20rem;
+    width: 100%; 
+    height: 100%;
     background-color: rgba(255, 255, 255, .15);  
     backdrop-filter: blur(5px);
-    justify-content: space-around;
     align-items: center;
     position: relative;
+    padding: 2rem;
+    min-height: 90vh;
+    justify-content: center;
 
     ${breakpoints.tabletXL} {
 		height: auto;
@@ -21,17 +22,21 @@ export const CardContainer = styled.div`
 
 export const ActualWeather = styled.div`
 	display: flex;
+    min-width: 22.68;
     width: 95%;
     height: 50%;
     background-color: rgba(0, 0, 0, .15);
     border-radius: 2rem;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    
+    margin-bottom: 2rem;
 
-    padding: 1rem;
+    padding: 2rem;
 
     ${breakpoints.tabletXL} {
 		flex-direction: column;
+        min-width: auto;
 	}
 `;
 
@@ -39,7 +44,7 @@ export const Temperature = styled.h1`
     display: flex;
     color: white;
     justify-self: center;
-    font-size: 10rem;
+    font-size: 7rem;
     align-self: center;
 
     ${breakpoints.tabletXL} {
@@ -77,33 +82,28 @@ export const ContainerData = styled.div`
 	}
 `;
 
-export const ContainerIcon = styled.div`
-    display: flex;
-    height: 10rem;
-    width: 10rem;
-    align-items: center;
-    justify-content: center;
-    ${breakpoints.tabletXL} {
-		height: 7rem;
-        width: 7rem;
-	}
-`;
-
 export const ContainerDescription = styled.div`
     display: flex;
     flex-direction: column;
-    height: 40%;
+    height: 75%;
     width: 100%;
     justify-content: space-between;
-    align-items: center;
     text-align: center;
+    align-items: center;
+    padding: 2rem;
+
+    ${breakpoints.tabletXL} {
+		height: 25rem;
+	}
 `;
 
 export const Description = styled.span`
     display: flex;
     color: white;
+    flex-direction: column;
     justify-self: flex-end;
     text-transform: capitalize;
+    align-items: center;
     font-size: 2rem;
     font-weight: 300;
 `;
@@ -114,6 +114,8 @@ export const Humidity = styled.span`
     justify-self: flex-end;
     font-size: 2rem;
     font-weight: 300;
+    align-items: center;
+    gap: 1rem;
 `;
 
 export const WindSpeed = styled.span`
@@ -154,8 +156,10 @@ export const ForecastCard = styled.div`
     ${breakpoints.tabletXL} {
 		flex-direction: row;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 1rem;
 	}
+
 `;
 
 export const TemperatureForecast = styled.h3`
@@ -177,6 +181,7 @@ export const Day = styled.h2`
     font-size: 2rem;
     justify-self: flex-start;
     font-weight: 400;
+    margin: 0;
 `;
 
 export const ContainerDetailsForecast = styled.div`
@@ -187,6 +192,20 @@ export const ContainerDetailsForecast = styled.div`
 
     ${breakpoints.tabletXL} {
 		flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
+        min-width:0;
+        gap: 2rem;
+	}
+`;
+
+export const ContainerIcon = styled.div`
+    display: flex;
+    height: 5rem;
+    width: 5rem;
+    align-items: center;
+    justify-content: center;
+
+    ${breakpoints.phablet} {
+		display: none;
 	}
 `;
