@@ -7,7 +7,7 @@ export function splitArray(array) {
     week.push({ id: uuidv4(), items: [array[index]] });
   }
 
-  week.push({ id: uuidv4(), items: [array[array.length - 1]] });
+  !getHour() && week.push({ id: uuidv4(), items: [array[array.length - 1]] });
 
   day.push({ id: uuidv4(), items: [array[0]] });
 
@@ -37,3 +37,13 @@ export function getDay(date){
   return { dayOfTheWeek };
 };
 
+export function getHour(){
+  const date = new Date();
+  const hour = date.getHours()
+
+  if(hour >= 18 && hour <= 20) {
+    return true;
+  }
+
+  return false;
+}

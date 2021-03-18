@@ -14,8 +14,6 @@ export default function useForecast( city ) {
       const API_URL = `http://api.openweathermap.org/data/2.5/forecast?q=${cityValue}&appid=${KEY}&lang=sp&units=metric`
       const response = await fetch(API_URL);
       const data = await response.json();
-
-      console.log(data)
   
       setWeatherDay(splitArray(data.list).day)
       setForecast(splitArray(data.list).week)

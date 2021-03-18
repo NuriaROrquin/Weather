@@ -147,11 +147,12 @@ export const Rectangle = styled.div`
 
 export const ForecastCard = styled.div`
     display: flex;
-    width: 20%;
+    width: ${(props) => (props.changeHour ? '25%' : '20%')};
     height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 3rem;
 
     ${breakpoints.tabletXL} {
 		flex-direction: row;
@@ -168,6 +169,7 @@ export const TemperatureForecast = styled.h3`
     justify-self: center;
     font-size: 3rem;
     align-self: center;
+    margin: 0;
 
     ${breakpoints.tabletXL} {
 		font-size: 2rem;

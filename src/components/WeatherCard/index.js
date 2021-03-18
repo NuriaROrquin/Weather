@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SelectField } from '../../basics/index.js';
-import { getDay } from '../../helpers/index.js';
+import { getDay, getHour } from '../../helpers/index.js';
 import useApiIp from '../../hooks/useApiIp.js';
 import useForecast from '../../hooks/useForecast.js';
 import { 
@@ -23,11 +23,18 @@ import {
 
 export default function WeatherCard() {
 
-  const [city, setCity] = useState("Buenos Aires")
+  const [city, setCity] = useState("Buenos Aires");
 
-  const { forecast, weatherDay } = useForecast(city)
+  const [isHour, setIsHour] = useState();
 
-  const { ipData } = useApiIp()
+  const { forecast, weatherDay } = useForecast(city);
+
+  const { ipData } = useApiIp();
+
+  useEffect(() => {
+    getHour();
+    setIsHour(getHour());
+  }, []);
 
   const cities = [
     {
@@ -60,7 +67,7 @@ export default function WeatherCard() {
       label: 'París',
       country: 'Francia'
     }
-  ]
+  ];
 
   const handleShowField = (field, label) => {
     setCity(label);
@@ -108,7 +115,7 @@ export default function WeatherCard() {
             <Rectangle>
             {forecast.map((item, index) => {
             return (
-              <ForecastCard key={index}>
+              <ForecastCard key={index} changeHour={isHour}>
                 <div style={{width: "auto"}}>
                   <Day>{getDay(item.items[0].dt_txt).dayOfTheWeek}</Day>
                 </div>
@@ -119,7 +126,7 @@ export default function WeatherCard() {
                   </ContainerIcon>
                   <div style={{display: "flex", width: "7rem",}}>
                     <TemperatureForecast>{item.items[0].main.temp}</TemperatureForecast>
-                    <Degrees style={{fontSize: "1rem"}}>°C</Degrees>
+                    <Degrees style={{fontSize: "1rem", margin: "0px"}}>°C</Degrees>
                   </div>
                 </ContainerDetailsForecast>
               </ForecastCard> 
