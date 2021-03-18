@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SelectField } from '../../basics/index.js';
-import { getDay, getHour } from '../../helpers/index.js';
+import { getDay, getHour, getIp } from '../../helpers/index.js';
 import useApiIp from '../../hooks/useApiIp.js';
 import useForecast from '../../hooks/useForecast.js';
 import { 
@@ -29,12 +29,16 @@ export default function WeatherCard() {
 
   const { forecast, weatherDay } = useForecast(city);
 
-  const { ipData } = useApiIp();
+  const { ipData, getIp } = useApiIp();
 
-  useEffect(() => {
-    getHour();
-    setIsHour(getHour());
-  }, []);
+  useEffect(
+		() => {
+      getIp();
+      getHour();
+      setIsHour(getHour());
+		},
+		[getIp]
+	);
 
   const cities = [
     {

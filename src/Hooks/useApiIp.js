@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export default function useApiIp() {
 
@@ -15,10 +15,6 @@ export default function useApiIp() {
       console.log(error)
     });
   }, [])
-  
-  useEffect(() => {
-    getIp();
-  },[getIp])
 
-  return { ipData }
+  return { ipData, getIp }
 }
